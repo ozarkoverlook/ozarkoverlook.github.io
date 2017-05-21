@@ -1,25 +1,25 @@
 ---
 layout: default
 ---
-<img id="landing" class="center fit" src="/images/oor.png"/>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<img id="landing" src="/images/oor.png"/>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" language="JavaScript">
   function set_body_height() { // set body height = window height
     $(landing).width($(window).width());
     if ($(landing).height()) {
         var y = $(window).height()/2 - $(landing).height()/2;
-        console.log($(window).height()/2 + " " + $(landing).height()/2);
         if ($(landing).height() + y < $(window).height()) {
-            console.log("good: " + y +'px');
             $(landing).css({top: y + 'px'});
         } else {
-            console.log("no go: " + y +'px');
             $(landing).css({top: '0px'});
         }
     }
   }
   $(document).ready(function() {
     $(window).bind('resize', set_body_height);
+    set_body_height();
+  });
+  $(landing).load(function() {
     set_body_height();
   });
 </script>
